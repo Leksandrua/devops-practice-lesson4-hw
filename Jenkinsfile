@@ -27,8 +27,11 @@ pipeline {
         }
     }
     post {
-        always {
-            mail bcc: '', body: 'This is body of test message', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'leksand.c@gmail.com'
+    success {
+            mail bcc: '', body: '${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\\n More info at: ${env.BUILD_URL}', cc: '', from: '', replyTo: '', subject: 'Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}', to: 'leksand.c@gmail.com'
+        }
+        failure {
+            mail bcc: '', body: '${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\\n More info at: ${env.BUILD_URL}', cc: '', from: '', replyTo: '', subject: 'Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}', to: 'leksand.c@gmail.com'
         }
     }
 }

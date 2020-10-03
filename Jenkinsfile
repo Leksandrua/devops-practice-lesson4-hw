@@ -38,10 +38,10 @@ pipeline {
     }
     post {
     success {
-            mail bcc: "", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\\n More info at: ${env.BUILD_URL}", cc: "", from: "Jenkins Admin <leksand.cs256@gmail.com>", replyTo: "", subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", to: "leksand.c@gmail.com"
+            mail bcc: "", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}. More info at: ${env.BUILD_URL}", cc: "", from: "Jenkins Admin <leksand.cs256@gmail.com>", replyTo: "", subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", to: "leksand.c@gmail.com"
         }
         failure {
-            mail bcc: "", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\\n More info at: ${env.BUILD_URL}", cc: "", from: "Jenkins Admin <leksand.cs256@gmail.com>", replyTo: "", subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", to: "leksand.c@gmail.com"
+            mail bcc: "", body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}. More info at: ${env.BUILD_URL}", cc: "", from: "Jenkins Admin <leksand.cs256@gmail.com>", replyTo: "", subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", to: "leksand.c@gmail.com"
         }
     }
 }

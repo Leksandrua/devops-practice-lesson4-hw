@@ -15,7 +15,7 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":$(date '+%F-%T')"
+                    dockerImage = docker.build registry + ":" + $(date '+%F-%T')
                 }
             }
         }

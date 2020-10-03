@@ -15,14 +15,14 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":$TAG_UNIXTIME"
+                    dockerImage = docker.build registry + ":$BUILD_ID"
                 }
             }
         }
         
         stage('Testing image') {
             steps {
-                sh 'dgoss run $registry:$TAG_UNIXTIME'
+                sh 'dgoss run $registry:$BUILD_ID'
             }
         }
 

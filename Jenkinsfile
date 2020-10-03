@@ -30,7 +30,8 @@ pipeline {
             steps {    
                 script {
                     docker.withRegistry( 'https://index.docker.io/v2/', registryCredential ) {
-                    dockerImage.push('leksandr/devops-practice')
+                    dockerImage.push("${env.BUILD_NUMBER}")
+                    dockerImage.push("latest")
                     }
                 }
             }

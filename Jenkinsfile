@@ -22,7 +22,7 @@ pipeline {
         
         stage('Testing image') {
             steps {
-                sh 'dgoss run $JOB_NAME:$BUILD_NUMBER'
+                sh 'dgoss run devops-practice:$BUILD_NUMBER'
             }
         }
 

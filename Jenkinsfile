@@ -15,7 +15,7 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    dockerImage = docker.build "$JOB_NAME" + ":$BUILD_NUMBER"
+                    dockerImage = docker.build "devops-practice" + ":$BUILD_NUMBER"
                 }
             }
         }

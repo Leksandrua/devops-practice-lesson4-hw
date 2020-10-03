@@ -15,14 +15,14 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_TIMESTAMP"
+                    dockerImage = docker.build registry + ":$BUILD_ID"
                 }
             }
         }
         
         stage('Testing image') {
             steps {
-                sh 'dgoss run $registry:$BUILD_TIMESTAMP'
+                sh 'dgoss run $registry:$BUILD_ID'
             }
         }
 

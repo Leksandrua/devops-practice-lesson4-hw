@@ -15,7 +15,7 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    dockerImage = docker.build "devops-practice" + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -29,9 +29,8 @@ pipeline {
         stage('Deploy Image') {
             steps {    
                 script {
-                    docker.withRegistry( 'https://index.docker.io/v2/', registryCredential ) {
-                    dockerImage.push("${env.BUILD_NUMBER}")
-                    dockerImage.push("latest")
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
                     }
                 }
             }

@@ -30,7 +30,7 @@ pipeline {
             steps {    
                 script {
                     docker.withRegistry( 'https://index.docker.io/v2/', registryCredential ) {
-                    dockerImage.push()
+                    dockerImage.push('leksandr/devops-practice')
                     }
                 }
             }
